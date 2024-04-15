@@ -1,33 +1,36 @@
-# Vglut2_GluR2_GFP_Fiber
+# DAPI_PML_RNF
 
-* **Developed for:** Maëla
-* **Team:** Selimi
-* **Date:** September 2023
+* **Developed for:** Hsin-Chieh
+* **Team:** De Thé
+* **Date:** April 2024
 * **Software:** Fiji
 
 ### Images description
 
-3D images taken with a x60 objective
+2D images of primary cells taken with a x60 objective
 
-3 channels:
-  1. *CSU_488:* VGlut2 dots
-  2. *CSU_568:* GluR2 dots
-  2. *CSU_647:* GFP neuronal fibers
+4 channels:
+  1. *Alexa Fluor 488:* RNF4 foci
+  2. *Alexa Fluor 594:* PML foci
+  3. *Alexa Fluor 647:* RNF111
+  4. *DAPI:* DAPI nuclei
 
 ### Plugin description
 
-* Detect GFP fibers and VGlut2 dots with Quantile Based Normalization + Weka
-* Detect GluR2 dots with Stardist
-* Colocalize VGlut2 dots with GFP fibers, keep only those being GFP+
-* Associate each VGlut2 dot with all GluR2 dots closer than 200nm (one GluR2 can only be associated with one VGlut2)
+* Detect DAPI nuclei using Cellpose
+* Detect PML foci using Difference of Gaussians filtering + Otsu thresholding + Fill Holes filtering
+* Detect RNF4 dots using Stardist
+* Compute colocalization between PML and RNF4 foci
+* For each nucleus, provide area and intensity in various channels, foci area and intensity in corresponding channel, diffuse area and intensity, and overlap area between PML and RNF4 foci 
 
 ### Dependencies
 
 * **3DImageSuite** Fiji plugin
-* **Stardist** model named *fociRNA-1.2.model*
-* 2 **Weka pixel classifier** models named *classifier-GFP.model* and *classifier-VGlut2.model*
+* **CLIJ** Fiji plugin
+* **Stardist** model named *pmls2.zip*
+* **Cellpose** conda environment + *cyto* pretrained model
    
 
 ### Version history
 
-Version 1 released on September 5, 2023.
+Version 1 released on April 15, 2024.
