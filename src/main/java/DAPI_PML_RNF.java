@@ -151,7 +151,7 @@ public class DAPI_PML_RNF implements PlugIn {
                 
                 // Draw results
                 tools.print("- Drawing results -");
-                tools.drawResults(nuclei, imgPml, imgRnf4, imgDapi, outDir, rootName);
+                tools.drawResults(nuclei, imgRnf4, imgPml, imgDapi, imgRnf111, outDir, rootName);
                 
                 tools.closeImage(imgRnf4);
                 tools.closeImage(imgPml);

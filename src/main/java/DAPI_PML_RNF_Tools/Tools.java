@@ -473,7 +473,7 @@ public class Tools {
     /**
      * Draw results
      */
-    public void drawResults(ArrayList<Nucleus> nuclei, ImagePlus imgPml, ImagePlus imgRnf4, ImagePlus imgDapi, String outDir, String imgName) {
+    public void drawResults(ArrayList<Nucleus> nuclei, ImagePlus imgRnf4, ImagePlus imgPml, ImagePlus imgDapi, ImagePlus imgRnf111, String outDir, String imgName) {
         ImageHandler imhNuc = ImageHandler.wrap(imgPml).createSameDimensions();
         ImageHandler imhPml = imhNuc.createSameDimensions();
         ImageHandler imhRnf4 = imhNuc.createSameDimensions();
@@ -487,7 +487,7 @@ public class Tools {
         }
         
         imhNuc.getImagePlus().setDisplayRange(0, 1);
-        ImagePlus[] imgColors = {imhRnf4.getImagePlus(), imhPml.getImagePlus(), imhNuc.getImagePlus(), imgRnf4, imgPml, imgDapi};
+        ImagePlus[] imgColors = {imhRnf4.getImagePlus(), imhPml.getImagePlus(), imhNuc.getImagePlus(), imgRnf4, imgPml, imgDapi, imgRnf111};
         ImagePlus imgObjects = new RGBStackMerge().mergeHyperstacks(imgColors, false);
         imgObjects.setCalibration(cal);
         new FileSaver(imgObjects).saveAsTiff(outDir + imgName + ".tif");
