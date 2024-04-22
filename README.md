@@ -33,4 +33,4 @@
 
 ### Version history
 
-Version 1 released on April 15, 2024.
+Version 1 released on April 22, 2024.
